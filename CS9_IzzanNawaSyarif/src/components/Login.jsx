@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const API_URL = import.meta.env.VITE_API_URL
-
 export default function Login() {
   const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(true)
@@ -26,7 +24,7 @@ export default function Login() {
     
     try {
       let response;
-      const url = `${API_URL}/user/` + (isLogin ? 'login' : 'register');
+      const url = 'http://localhost:3000/user/' + (isLogin ? 'login' : 'register');
       
       if (!isLogin) {
         const queryParams = new URLSearchParams(formData).toString();
@@ -132,13 +130,13 @@ export default function Login() {
             </label>
             <input
               type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                required
-                placeholder="Enter your email"
-              />
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              required
+              placeholder="Enter your email"
+            />
           </div>
 
           <div>

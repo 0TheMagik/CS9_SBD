@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const API_URL = import.meta.env.VITE_API_URL
-
 export default function Store() {
   const [stores, setStores] = useState([])
   const [error, setError] = useState('')
@@ -11,7 +9,7 @@ export default function Store() {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const response = await fetch(`${API_URL}/store/getAll`)
+        const response = await fetch('http://localhost:3000/store/getAll')
         const data = await response.json()
         
         if (data.success) {

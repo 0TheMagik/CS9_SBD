@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-const API_URL = import.meta.env.VITE_API_URL
-
 export default function ItemList() {
   const [items, setItems] = useState([])
   const [store, setStore] = useState(null)
@@ -13,7 +11,7 @@ export default function ItemList() {
   useEffect(() => {
     const fetchStoreDetails = async () => {
       try {
-        const response = await fetch(`${API_URL}/store/${storeId}`)
+        const response = await fetch(`http://localhost:3000/store/${storeId}`)
         const data = await response.json()
         if (data.success) {
           setStore(data.payload)
@@ -25,7 +23,7 @@ export default function ItemList() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch(`${API_URL}/item/byStoreId/${storeId}`)
+        const response = await fetch(`http://localhost:3000/item/byStoreId/${storeId}`)
         const data = await response.json()
         if (data.success) {
           setItems(data.payload)
