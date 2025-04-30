@@ -7,7 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://os.netlabdte.com'],
+    origin: [
+        'http://localhost:5173', 
+        'https://os.netlabdte.com',
+        'https://cs9-izzannawasyarif.vercel.app/' 
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
     optionsSuccessStatus: 200
